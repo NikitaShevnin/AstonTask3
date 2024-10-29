@@ -39,9 +39,9 @@ public class UserController {
      * @return Список всех пользователей в формате JSON.
      */
     @GetMapping
-    public ResponseEntity<List<Map<String, Object>>> getAllUsers() {
+    public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getUsers();
-        return ResponseEntity.ok(users.stream().map(JsonResponseUserUtil::toJson).toList());
+        return ResponseEntity.ok(users);
     }
 
     /**

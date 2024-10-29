@@ -39,9 +39,9 @@ public class OrderController {
      * @return Список всех заказов в формате JSON.
      */
     @GetMapping
-    public ResponseEntity<List<Map<String, Object>>> getAllOrders() {
+    public ResponseEntity<List<Order>> getAllOrders() {
         List<Order> orders = orderService.getAllOrders();
-        return ResponseEntity.ok(orders.stream().map(JsonResponseOrderUtil::toJson).toList());
+        return ResponseEntity.ok(orders);
     }
 
     /**
